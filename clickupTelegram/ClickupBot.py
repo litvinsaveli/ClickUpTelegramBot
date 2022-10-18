@@ -1,11 +1,9 @@
-
 import sys
-sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\config")
-sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\clickupApi")
-sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\clickupython")
+import os
+sys.path.insert(1, os.path.dirname(os.path.abspath(os.path.join(sys.argv[0], os.pardir))))
 
 import logging
-import config
+import config.config as config
 from telegram.ext.updater import Updater
 from telegram.update import Update
 from telegram import (InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove)
@@ -13,7 +11,8 @@ from telegram.ext.callbackcontext import CallbackContext
 from telegram.ext.commandhandler import CommandHandler
 from telegram.ext.messagehandler import MessageHandler
 from telegram.ext import (ConversationHandler, ContextTypes, filters, CallbackQueryHandler, Filters)
-import clickup_telegram_connector as infinity
+
+import clickupApi.clickup_telegram_connector as infinity
 
 updater = Updater(config.telegram_api,
                   use_context=True)

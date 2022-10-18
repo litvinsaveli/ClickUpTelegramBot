@@ -9,10 +9,10 @@ from typing import List, Optional
 from time import sleep
 from datetime import datetime
 
-from helpers.timefuncs import fuzzy_time_to_seconds, fuzzy_time_to_unix
-from helpers import formatting
-import models
-import exceptions
+from clickupython.helpers.timefuncs import fuzzy_time_to_seconds, fuzzy_time_to_unix
+from clickupython.helpers import formatting
+import clickupython.models as models
+import clickupython.exceptions as exception
 
 
 API_URL = "https://api.clickup.com/api/v2/"
