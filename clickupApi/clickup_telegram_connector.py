@@ -1,5 +1,10 @@
-from clickupython import client
-import config.config as config
+import sys
+sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\config")
+sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\clickupApi")
+sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\clickupython")
+
+import client
+import config as config
 
 
 API_KEY = config.clickup_api
