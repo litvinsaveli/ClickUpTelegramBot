@@ -1,5 +1,11 @@
-import config.config as config
 
+import sys
+sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\config")
+sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\clickupApi")
+sys.path.insert(1, "D:\\CodeProjects\\ClickUpBot\\clickupython")
+
+import logging
+import config
 from telegram.ext.updater import Updater
 from telegram.update import Update
 from telegram import (InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove)
@@ -7,7 +13,7 @@ from telegram.ext.callbackcontext import CallbackContext
 from telegram.ext.commandhandler import CommandHandler
 from telegram.ext.messagehandler import MessageHandler
 from telegram.ext import (ConversationHandler, ContextTypes, filters, CallbackQueryHandler, Filters)
-import clickupApi.clickup_telegram_connector as infinity
+import clickup_telegram_connector as infinity
 
 updater = Updater(config.telegram_api,
                   use_context=True)
@@ -53,11 +59,11 @@ def keyboard_callback_create_task(update: Update, context):
 
 
 if __name__ == "__main__":
-
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CommandHandler('help', help))
     updater.dispatcher.add_handler(CallbackQueryHandler(keyboard_callback_create_task))
     updater.dispatcher.add_handler(MessageHandler(Filters.text, create_task))
 
+    print("Started ...")
     updater.start_polling()
     updater.idle()
