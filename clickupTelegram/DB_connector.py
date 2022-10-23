@@ -70,7 +70,9 @@ def check_is_user_registed(userID):
             connection.close()
             print("MySQL connection is closed")
 
+
 def get_user_api (user_id):
+
     try:
         with connect(
                 host=config.db_server_name,
@@ -124,7 +126,6 @@ def insert_spaces(userID, boardName, boardId):
                         VALUES ({userID}, '{boardName}', {boardId}, 0)
                     """
 
-            print(query)
             cursor = connection.cursor()
             cursor.execute(query)
             connection.commit()
@@ -154,7 +155,6 @@ def insert_user_spaces(userID, workspace_id, space_name, space_id):
                         VALUES ({userID},{workspace_id}, '{space_name}', {space_id}, 0)
                     """
 
-            print(query)
             cursor = connection.cursor()
             cursor.execute(query)
             connection.commit()
@@ -184,7 +184,6 @@ def insert_user_lists(userID, space_id, list_name, list_id):
                         VALUES ({userID}, {space_id}, '{list_name}', {list_id}, 0)
                     """
 
-            print(query)
             cursor = connection.cursor()
             cursor.execute(query)
             connection.commit()

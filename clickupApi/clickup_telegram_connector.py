@@ -76,4 +76,3 @@ Step by step execution:
         Therefore its enable to push task in choosed list
 """
 
-print(get_user_spaces(config.clickup_api, "30326153"))
